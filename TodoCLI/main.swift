@@ -3,7 +3,7 @@ import Foundation
 // * Create the `Todo` struct.
 // * Ensure it has properties: id (UUID), title (String), and isCompleted (Bool).
 struct Todo: Identifiable, Codable, CustomStringConvertible {
-    var id: UUID
+    var id = UUID()
     var title: String
     var isCompleted: Bool
     
@@ -93,7 +93,7 @@ final class TodoManager {
     }
     
     func addTodo(with title: String) {
-        let todoToAdd = Todo(id: UUID(), title: title, isCompleted: false)
+        let todoToAdd = Todo(title: title, isCompleted: false)
         todos.append(todoToAdd)
         print("\"\(todoToAdd)\" added to list ✍🏾.")
         cache.save(todos: todos)
